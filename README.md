@@ -51,6 +51,12 @@ cd BharatFD-Assignment
 npm install
 ```
 
+### Build the project
+
+```bash
+npm run build
+```
+
 ### Set up environment variables
 
 The `.env.dev` file is pre-configured, so you don't need to change anything unless necessary. When running the command to start the development server, `.env.dev` is copied to `.env`.
