@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { getAsync, setAsync } from '../config/redis.js';
+import { getAsync, setAsync } from '../config/redis';
 
 export const cacheMiddleware = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {

@@ -3,6 +3,9 @@ import jwt from 'jsonwebtoken';
 import Admin from '../models/Admin';
 import Faq from '../models/Faq';
 import { ResponseHandler } from '../utils/responseHandler';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 export const register = async (req: Request, res: Response) => {
     try {

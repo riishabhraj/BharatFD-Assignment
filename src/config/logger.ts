@@ -1,4 +1,7 @@
 import winston from 'winston';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const environment: string = process.env.ENV || 'production';
 const logLevel: string = environment === 'production' ? 'info' : 'debug';

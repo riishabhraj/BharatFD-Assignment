@@ -10,6 +10,7 @@ import morgan from 'morgan'
 import * as path from "node:path";
 import redisClient from "./config/redis";
 import redis from "./config/redis";
+import mongoose from 'mongoose';
 
 dotenv.config();
 const app = express();
@@ -20,12 +21,12 @@ app.use(express.json());
 app.use(cors());
 
 // Connect to Database
-connectDB();
+connectDB()
 
 // Routes
 app.use('/api/faqs', faqRoutes);
 app.use('/api/admin', adminRoutes);
-redisClient.on('connect', (err: Error) => console.error('Redis Client Error:', err));
+redisClient.on('connect', () => console.log('Redis Connected Successfully'));
 setupSwagger(app);
 
 app.use('/', (req, res) => {

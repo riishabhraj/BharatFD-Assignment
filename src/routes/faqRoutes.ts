@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { getFaqs, createFaq } from '../controllers/faqController.js';
-import { cacheMiddleware } from '../middleware/cache.js';
+import { getFaqs, createFaq } from '../controllers/faqController';
+import { cacheMiddleware } from '../middleware/cache';
 // @ts-ignore
 import { body, validationResult } from 'express-validator';
 
