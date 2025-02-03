@@ -38,8 +38,10 @@ describe('FAQ Endpoints', () => {
     it('should create an FAQ', async () => {
         const faqData = { question: 'What is Node.js?', answer: 'Node.js is a runtime.' };
         const res = await request(app).post('/api/faqs').set('Authorization', `Bearer ${token}`).send(faqData);
+
         expect(res.status).toBe(201);
-        expect(res.body.data.question).toBe('What is Node.js?');
+        expect(res.body.data).toHaveProperty('question', 'What is Node.js?');
+        expect(res.body.data).toHaveProperty('answer', 'Node.js is a runtime.');
         faqId = res.body.data._id;
     });
 
@@ -67,7 +69,10 @@ describe('FAQ Endpoints', () => {
 
     it('should not create an FAQ without question and answer', async () => {
         const res = await request(app).post('/api/faqs').set('Authorization', `Bearer ${token}`).send({});
+
         expect(res.status).toBe(400);
         expect(res.body.message).toBe('Question and answer are required');
     });
+
+    // Add more tests for edge cases as needed
 });
